@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" version="1.1">
+  <!-- 背景：PCB 绿 -->
+  <rect width="100%" height="100%" fill="#05320D"/>
+  <!-- 网格（像素风） -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none"/>
+      <path d="M20 0 L20 20 M0 20 L20 20" stroke="#073f12" stroke-width="1" />
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)" opacity="0.25"/>
+
+  <!-- 左侧：简化的 Arduino/电路板 元件区域 -->
+  <g transform="translate(40,80)">
+    <rect x="0" y="0" width="360" height="320" rx="12" ry="12" fill="#0a4d1a" stroke="#0f7a2b" stroke-width="6"/>
+    <!-- 引脚用小圆点 -->
+    <g fill="#f2d085" stroke="#c48b34" stroke-width="1">
+      <!-- top header pins -->
+      <circle cx="30" cy="20" r="6"/>
+      <circle cx="60" cy="20" r="6"/>
+      <circle cx="90" cy="20" r="6"/>
+      <circle cx="120" cy="20" r="6"/>
+      <circle cx="150" cy="20" r="6"/>
+      <circle cx="180" cy="20" r="6"/>
+    </g>
+    <!-- 芯片 -->
+    <rect x="38" y="68" width="140" height="100" fill="#0b2f24" stroke="#12573f" stroke-width="3" rx="6" ry="6"/>
+    <text x="48" y="118" fill="#d8ffea" font-family="monospace" font-size="18">UNO</text>
+    <!-- LED 指示 -->
+    <rect x="200" y="80" width="120" height="60" rx="6" fill="#103022" stroke="#1f6f40" stroke-width="3"/>
+    <circle cx="230" cy="110" r="12" fill="#FF4040" stroke="#771a1a" stroke-width="2"/>
+    <circle cx="280" cy="110" r="12" fill="#4CFF88" stroke="#1a6f3a" stroke-width="2"/>
+    <text x="210" y="165" fill="#bfe9cf" font-family="sans-serif" font-size="14">POWER</text>
+    <!-- 简单走线 -->
+    <g stroke="#D6B24C" stroke-width="6" stroke-linecap="round" fill="none" filter="url(#glow)">
+      <path d="M170 120 C 240 100, 360 40, 420 50" opacity="0.95"/>
+      <path d="M170 160 C 280 180, 360 240, 480 240" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- 右侧：像素化横幅与电路走线连接 -->
+  <g transform="translate(460,40)">
+    <!-- 边框 -->
+    <rect x="0" y="0" width="680" height="400" rx="16" ry="16" fill="#062b17" stroke="#0f7a2b" stroke-width="6"/>
+    <!-- 内部背景格子（更明显的像素格） -->
+    <g transform="translate(20,20)">
+      <rect x="0" y="0" width="640" height="360" fill="#07381b"/>
+      <!-- 像素方块：用矩形绘制文字和图案（示意） -->
+      <!-- 马年像素简图（右上） -->
+      <g transform="translate(420,20)">
+        <!-- 身体（黄色） -->
+        <rect x="0" y="0" width="16" height="16" fill="#FFD166"/>
+        <rect x="16" y="0" width="16" height="16" fill="#FFD166"/>
+        <rect x="32" y="0" width="16" height="16" fill="#FFD166"/>
+        <rect x="0" y="16" width="16" height="16" fill="#FFD166"/>
+        <rect x="16" y="16" width="16" height="16" fill="#FFB84D"/>
+        <rect x="32" y="16" width="16" height="16" fill="#FFD166"/>
+        <rect x="48" y="8" width="8" height="8" fill="#6B2E00"/>
+        <!-- 简单眼睛 -->
+        <rect x="20" y="8" width="4" height="4" fill="#000"/>
+      </g>
+
+      <!-- 文字：马年大吉 -->
+      <g transform="translate(40,40)" fill="#FFEE99">
+        <!-- 这里用简化的像素文字框表示（每格 16x16） -->
+        <!-- “马” 的示意像素块 -->
+        <rect x="0" y="0" width="32" height="16" fill="#FFEE99"/>
+        <rect x="0" y="16" width="48" height="16" fill="#FFEE99"/>
+        <rect x="16" y="32" width="16" height="16" fill="#FFEE99"/>
+        <!-- “年” -->
+        <rect x="64" y="0" width="48" height="16" fill="#FFEE99"/>
+        <rect x="64" y="16" width="32" height="16" fill="#FFEE99"/>
+        <rect x="96" y="32" width="16" height="16" fill="#FFEE99"/>
+        <!-- “大吉” -->
+        <rect x="144" y="0" width="32" height="16" fill="#FFEE99"/>
+        <rect x="144" y="16" width="32" height="16" fill="#FFEE99"/>
+        <rect x="192" y="0" width="32" height="16" fill="#FFEE99"/>
+        <rect x="192" y="16" width="32" height="16" fill="#FFEE99"/>
+      </g>
+
+      <!-- 代码祝愿（像素字）“代码0报错” -->
+      <g transform="translate(40,160)" fill="#A7FFD1">
+        <rect x="0" y="0" width="160" height="24" rx="4" fill="#062"/>
+        <text x="12" y="18" fill="#A7FFD1" font-family="monospace" font-size="18">代码 0 报错</text>
+      </g>
+
+      <!-- 从左侧板子连过来的走线（像素风铜色） -->
+      <g transform="translate(-40,180)" stroke="#D6B24C" stroke-width="8" stroke-linecap="round" fill="none">
+        <path d="M80 40 C 140 20, 220 -20, 260 0" />
+        <path d="M80 80 C 180 120, 240 160, 320 160" />
+      </g>
+
+      <!-- 装饰的小焊盘/过孔 -->
+      <g transform="translate(0,0)" fill="#D6B24C">
+        <circle cx="120" cy="40" r="6"/>
+        <circle cx="200" cy="200" r="6"/>
+        <circle cx="360" cy="120" r="6"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 下方注释文本 -->
+  <text x="60" y="460" fill="#CFFFE0" font-family="sans-serif" font-size="18">祝：马年大吉 · 代码 0 报错 · 新年快乐</text>
+</svg>
